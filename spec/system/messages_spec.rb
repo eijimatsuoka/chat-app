@@ -15,6 +15,7 @@ RSpec.describe "メッセージ投稿機能", type: :system do
       click_on(@room_user.room.name)
 
       # DBに保存されていないことを確認する
+      expect {
         find('input[name="commit"]').click
       }.not_to change { Message.count }
 
